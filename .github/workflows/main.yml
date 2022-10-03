@@ -28,6 +28,9 @@ jobs:
         uses: docker/metadata-action@v4.0.1
         with:
           images: gawaine/aws-es-proxy
+          tags: |
+            # set latest tag for default branch
+            type=raw,value=latest,enable={{is_default_branch}}
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.1.1
         with:
